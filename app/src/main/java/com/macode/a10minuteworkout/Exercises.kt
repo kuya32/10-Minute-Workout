@@ -14,7 +14,7 @@ class Exercises {
             )
 
             val sideLunges = ExerciseModel(
-                1,
+                2,
                 "Alternating Side Lunges",
                 R.drawable.side_lunge,
                 false,
@@ -22,7 +22,7 @@ class Exercises {
             )
 
             val lunges = ExerciseModel(
-                1,
+                3,
                 "Alternating Lunges",
                 R.drawable.lunges,
                 false,
@@ -30,7 +30,7 @@ class Exercises {
             )
 
             val gobletSquat = ExerciseModel(
-                1,
+                4,
                 "Goblet Squat",
                 R.drawable.goblet_squat,
                 false,
@@ -38,7 +38,7 @@ class Exercises {
             )
 
             val wallSit = ExerciseModel(
-                1,
+                5,
                 "Wall Sit",
                 R.drawable.ic_wall_sit,
                 false,
@@ -46,14 +46,14 @@ class Exercises {
             )
 
             val hydrantLeft = ExerciseModel(
-                1,
+                6,
                 "Hydrant - Left",
                 R.drawable.hydrants,
                 false,
                 false
             )
             val hydrantRight = ExerciseModel(
-                1,
+                7,
                 "Hydrant - Right",
                 R.drawable.hydrants,
                 false,
@@ -62,7 +62,7 @@ class Exercises {
 
 
             val plank = ExerciseModel(
-                1,
+                8,
                 "Plank",
                 R.drawable.plank,
                 false,
@@ -70,7 +70,7 @@ class Exercises {
             )
 
             val supermans = ExerciseModel(
-                1,
+                9,
                 "Supermans",
                 R.drawable.supermans,
                 false,
@@ -78,7 +78,7 @@ class Exercises {
             )
 
             val mountainClimbers = ExerciseModel(
-                1,
+                10,
                 "Mountain Climbers",
                 R.drawable.mountain_climbers,
                 false,
@@ -86,7 +86,7 @@ class Exercises {
             )
 
             val backLegLiftLeft = ExerciseModel(
-                1,
+                11,
                 "Plank Single Back Leg Lift - Left",
                 R.drawable.back_leg_lift,
                 false,
@@ -94,7 +94,7 @@ class Exercises {
             )
 
             val backLegLiftRight = ExerciseModel(
-                1,
+                12,
                 "Plank Single Back Leg Lift - Right",
                 R.drawable.back_leg_lift,
                 false,
@@ -102,7 +102,7 @@ class Exercises {
             )
 
             val abWheel = ExerciseModel(
-                1,
+                13,
                 "Ab Wheel",
                 R.drawable.ab_wheel,
                 false,
@@ -110,7 +110,7 @@ class Exercises {
             )
 
             val crabToe = ExerciseModel(
-                1,
+                14,
                 "Crab Toe Touch",
                 R.drawable.crab_toe_touches,
                 false,
@@ -118,7 +118,7 @@ class Exercises {
             )
 
             val bicycle = ExerciseModel(
-                1,
+                15,
                 "Bicycle Crunches",
                 R.drawable.bicycle_crunch,
                 false,
@@ -126,7 +126,7 @@ class Exercises {
             )
 
             val bridge = ExerciseModel(
-                1,
+                16,
                 "Bridges",
                 R.drawable.bridge,
                 false,
@@ -134,7 +134,7 @@ class Exercises {
             )
 
             val jackKnife = ExerciseModel(
-                1,
+                17,
                 "Jack Knife Crunches",
                 R.drawable.jacknife_toe_touches,
                 false,
@@ -142,7 +142,7 @@ class Exercises {
             )
 
             val singleLegBridgeLeft = ExerciseModel(
-                1,
+                18,
                 "Single Leg Bridge - Left",
                 R.drawable.single_leg_bridge,
                 false,
@@ -150,7 +150,7 @@ class Exercises {
             )
 
             val singleLegBridgeRight = ExerciseModel(
-                1,
+                19,
                 "Single Leg Bridge - Right",
                 R.drawable.single_leg_bridge,
                 false,
@@ -158,7 +158,7 @@ class Exercises {
             )
 
             val russianTwists = ExerciseModel(
-                1,
+                20,
                 "Russian Twists",
                 R.drawable.russian_twist,
                 false,
