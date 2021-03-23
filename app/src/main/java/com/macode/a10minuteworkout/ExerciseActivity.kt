@@ -1,15 +1,22 @@
 package com.macode.a10minuteworkout
 
+import android.app.Dialog
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
+import android.text.Layout
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.macode.a10minuteworkout.databinding.ActivityExerciseBinding
+import com.macode.a10minuteworkout.databinding.DialogCustomBackConfirmationBinding
 import com.macode.a10minuteworkout.databinding.MainToolbarBinding
 import java.lang.Exception
 import java.util.*
@@ -29,6 +36,10 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener {
     private var tts: TextToSpeech? = null
     private var player: MediaPlayer? = null
 
+    private var exerciseAdapter: ExerciseStatusAdapter? = null
+
+    private lateinit var customDialogBinding: DialogCustomBackConfirmationBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityExerciseBinding.inflate(layoutInflater)
@@ -39,7 +50,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar.setNavigationOnClickListener {
-            onBackPressed()
+            customDialogForBackButton()
         }
 
         tts = TextToSpeech(this, this)
@@ -47,6 +58,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener {
         exerciseList = Exercises.defaultExerciseList()
         setUpRestView()
 
+        setupExerciseStatusRecyclerView()
     }
 
     override fun onDestroy() {
@@ -92,6 +104,10 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener {
 
             override fun onFinish() {
                 currentExercisePosition++
+
+                exerciseList!![currentExercisePosition].setIsSelected(true)
+                exerciseAdapter!!.notifyDataSetChanged()
+
                 setUpExerciseView()
             }
         }.start()
@@ -133,9 +149,14 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener {
 
             override fun onFinish() {
                 if (currentExercisePosition < exerciseList?.size!! - 1) {
+                    exerciseList!![currentExercisePosition].setIsSelected(false)
+                    exerciseList!![currentExercisePosition].setIsComplete(true)
+                    exerciseAdapter!!.notifyDataSetChanged()
                     setUpRestView()
                 } else {
-                    Toast.makeText(this@ExerciseActivity, "Well done!", Toast.LENGTH_SHORT).show()
+                    finish()
+                    val intent = Intent(this@ExerciseActivity, FinishedActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }.start()
@@ -171,6 +192,29 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener {
 
     private fun speakOut(text: String) {
         tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+
+    private fun setupExerciseStatusRecyclerView() {
+        binding.exerciseStatusRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        exerciseAdapter = ExerciseStatusAdapter(exerciseList!!, this)
+        binding.exerciseStatusRecyclerView.adapter = exerciseAdapter
+    }
+
+    private fun customDialogForBackButton() {
+        customDialogBinding = DialogCustomBackConfirmationBinding.inflate(layoutInflater)
+        val view = customDialogBinding.root
+
+        val customDialog = Dialog(this)
+        customDialog.setContentView(view)
+
+        customDialogBinding.yesButton.setOnClickListener {
+            finish()
+            customDialog.dismiss()
+        }
+        customDialogBinding.noButton.setOnClickListener {
+            customDialog.dismiss()
+        }
+        customDialog.show()
     }
 
 }
