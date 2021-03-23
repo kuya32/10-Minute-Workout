@@ -11,8 +11,8 @@
         android:id="@+id/appLogoImage"
         android:layout_width="match_parent"
         android:layout_height="325dp"
+        android:layout_marginTop="30dp"
         android:contentDescription="logo image"
-        android:layout_marginTop="75dp"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +22,8 @@
         android:id="@+id/linearStartButton"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:gravity="center"
         android:background="@drawable/item_color_accent_border_ripple_background"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appLogoImage">
@@ -34,9 +34,80 @@
             android:text="Start"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearBMIButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/item_circular_color_gold_accent_border"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/linearHistoryButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearStartButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI"
+            android:textAllCaps="true"
+            android:textColor="@color/gold"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Calculator"
+        android:textAllCaps="true"
+        android:textColor="@color/gold"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/linearBMIButton"
+        app:layout_constraintStart_toStartOf="@+id/linearBMIButton"
+        app:layout_constraintTop_toBottomOf="@+id/linearBMIButton" />
+
+    <LinearLayout
+        android:id="@+id/linearHistoryButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/item_circular_color_gold_accent_border"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/linearBMIButton"
+        app:layout_constraintTop_toBottomOf="@+id/linearStartButton">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_history" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="History"
+        android:textAllCaps="true"
+        android:textColor="@color/gold"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/linearHistoryButton"
+        app:layout_constraintStart_toStartOf="@+id/linearHistoryButton"
+        app:layout_constraintTop_toBottomOf="@+id/linearHistoryButton" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
